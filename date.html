@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<head>
+	<style>
+		#bod{
+			margin:auto;
+			width:50%;
+		}
+	</style>
+</head>
+
+<body id="bod">
+	<h1 id ="header"></h1>
+	<div id="greet"> </div>
+</body>
+
+<script>
+var now = new Date();
+var hours = now.getHours();
+var minutes = now.getMinutes();
+
+var hd = document.getElementById("header");
+
+// time with single digit minutes
+function timeOne(){
+	var time = (hours - 12)+":0"+minutes;
+	hd.innerHTML = time;
+}
+
+// time with double digit minutes
+function timeTwo(){
+	var time = (hours - 12)+":"+minutes;
+	hd.innerHTML = "The time is "+ time;
+}
+
+(minutes <= 9)? timeOne() : timeTwo();
+(hours > 12)? (hd.innerHTML+= " PM") : (hd.innerHTML += " AM");
+
+//creates the greeting below
+var greet = document.getElementById("greet");
+
+var img = new Image();
+
+if(hours > 12){
+	var greeting = document.createElement("h3");
+	greeting.innerHTML = "Good Evening!";
+	document.body.appendChild(greeting);
+	img.src = "http://www.hrhwalls.com/reimg/image.php?src=http://img.hrhwalls.com/images219/bwyeds1xfvo.jpg&h=450&w=728"
+	document.body.appendChild(img);
+}
+else if(hours < 12){
+	var greeting = document.createElement("h3");
+	greeting.innerHTML = "Good Morning!";
+	document.body.appendChild(greeting);
+	img.src="https://i.ytimg.com/vi/wuLKvcn-c7A/maxresdefault.jpg"
+	document.body.appendChild(img);
+
+}
+
+</script>
+</html>
